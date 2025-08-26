@@ -1,13 +1,18 @@
 {
-  "name": "${PROJECT_NAME}",
+  "name": "highscoreserver",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
+  "type": "module",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "run": "node dist/index.js"
   },
-  "dependencies": {},
+  "dependencies": {
+    "express": "^5.1.0"
+  },
   "devDependencies": {
+    "@types/express": "^5.0.3",
     "typescript": "^5.5.3"
   },
   "private": true

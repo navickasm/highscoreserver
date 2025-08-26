@@ -15,7 +15,8 @@ interface HighScore {
 
 let highScores: HighScore[] = [];
 
-app.use(express.json());
+app.use(express.json({ strict: true }));
+
 
 function loadHighScores() {
     if (fs.existsSync(CSV_FILE)) {

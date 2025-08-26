@@ -39,6 +39,26 @@ function saveHighScores() {
     fs.writeFileSync(CSV_FILE, data, 'utf-8');
 }
 
+app.get('/', (req, res) => {
+    const html = `
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>High Scores</title>
+        </head>
+        <body>
+            <h1>High Scores</h1>
+            <ul>
+                ${highScores.map(score => `<li>${score.initials}: ${score.score}</li>`).join('')}
+            </ul>
+        </body>
+        </html>
+    `;
+    res.send(html);
+});
+
 app.post('/highScore', (req, res) => {
     const { score, initials } = req.body;
 
